@@ -24,35 +24,71 @@ function rawcore_login_logo() {
     }
     body.login div#login h1 a {
         background-image:url('. plugins_url( '../img/login-logo.png',__FILE__) .');
-        width: 200px;
+        width: 180px;
         background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
     }
     form#loginform {
         border-radius: 5px;
         background-color: rgba(255,255,255,0.7);
         box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.3);
     }
+    .login label {
+        color: #454545;
+        display: block;
+        margin-bottom: 1em;
+        font-weight: bold;
+    }
+
+    .login form .input {
+        font-weight: normal;
+    }
+
+    .login #backtoblog a,
+    .login #nav a {
+        color: #830000;
+    }
+
+    .wp-core-ui .button-primary {
+        background-color: #830000;
+        color: #fff;
+    }
+    .wp-core-ui .button-primary:hover,
+    .wp-core-ui .button-primary:focus,
+    .wp-core-ui .button-primary:active {
+        background-color: #550000;
+    }
     </style>';
 }
 add_action('login_head', 'rawcore_login_logo');
 
 // Login Logo URL
-function rawcore_login_url($login_header_url) {
-    return get_bloginfo( 'url' );
+function rawcore_login_headerurl( $url ) {
+    return esc_url( home_url() );
 }
-add_filter( 'login_headerurl', 'rawcore_login_url' );
+add_filter( 'login_headerurl', 'rawcore_login_headerurl' );
 
-// Login Logo Link-title
-function rawcore_login_text($login_header_text) {
-    return get_bloginfo('title');
+// Login Logo Title
+function rawcore_login_headertext() {
+    // $logotitle = get_bloginfo($show = 'name', $filter = 'raw' );
+    // return $logotitle;
+    return 'Back to Start';
 }
-add_filter( 'login_headertext', 'rawcore_login_text' );
+add_filter( 'login_headertext', 'rawcore_login_headertext' );
 
 // Login Fehlerausgabe begrenzen
 function rawcore_no_login_error(){
-    return 'Da ist etwas schiefgelaufen!';
+    return 'Oops, that\'s not correct!';
 }
 add_filter( 'login_errors', 'rawcore_no_login_error' );
+
+// Remember Me always
+add_action( 'init', 'rawcore_remember_me' );
+function rawcore_remember_me() {
+    echo "<script>document.getElementById('rememberme').checked = true;</script>";
+}
+add_filter( 'login_footer', 'rawcore_remember_me' );
 
 // ---------- Dashboard ---------- //
 
@@ -88,13 +124,13 @@ add_action('wp_before_admin_bar_render', 'rawcore_dash_logo');
 
 // Dashboard Footer Text anpassen
 function rawcore_footer_admin () {
-    echo 'Gestaltet mit Herz für <a href="https://www.rawsta.de" target="_blank">TheCats</a></p>';
+    echo 'Made with Coffee and Love by <a href="https://www.rawsta.de" target="_blank">Rawsta</a></p>';
 }
 add_filter('admin_footer_text', 'rawcore_footer_admin');
 
 
 // enqueue Dashicons
 function rawcore_enqueue_dashicons() {
-    wp_enqueue_style( 't3s-dashicons-font', get_stylesheet_directory_uri(), array('dashicons'), '1.0' );
+    wp_enqueue_style( 'raw-dashicons-font', get_stylesheet_directory_uri(), array('dashicons'), '1.0' );
 }
 add_action( 'wp_enqueue_scripts', 'rawcore_enqueue_dashicons' );

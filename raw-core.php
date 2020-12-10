@@ -4,7 +4,7 @@
  * Plugin Name: Raw Core
  * Plugin URI: http://www.rawsta.de
  * Description: Schaltet nicht benötigte WordPress Funktionen ab und bildet eine Basis für unsere Themes.
- * Version: 1.0
+ * Version: 0.3.0
  *
  * Author: Sebastian Fiele
  * Author URI: http://www.rawsta.de
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'RAW_DIR' , plugin_dir_path( __FILE__ ) );
 
 // Current plugin version, manually defined for performance reasons.
-define( 'RAWCORE_VERSION', '0.4.2' );
+define( 'RAWCORE_VERSION', '0.3.3' );
 
 
 //include sections

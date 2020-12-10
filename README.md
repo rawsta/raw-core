@@ -1,8 +1,8 @@
 # Raw-Core
 
-WordPress Plug-in für Anpassungen, die nicht das Aussehen betreffen.
+WordPress Plugin for theme-independant tweaks and customizations.
 
-Mit diesem Plugin werden Grundlagen für eine neue WordPress Installation festgelegt bzw. geändert.
+This plugin removes unneeded functions and assets, provides basic backend branding and smaller changes that are independent from the theme.
 
 Status: alpha
 
