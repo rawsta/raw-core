@@ -15,20 +15,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Put post thumbnails into rss feed
 function rawcore_feed_post_thumbnail($content) {
-global $post;
-if(has_post_thumbnail($post->ID)) {
-$content = '' . $content;
-}
-return $content;
+	global $post;
+	if(has_post_thumbnail($post->ID)) {
+		$content = '' . $content;
+	}
+	return $content;
 }
 add_filter('the_excerpt_rss', 'rawcore_feed_post_thumbnail');
 add_filter('the_content_feed', 'rawcore_feed_post_thumbnail');
 
 function rawcore_postrss($content) {
-if(is_feed()){
-    $content = ' '.$content.'Bitte besuchen Sie unsere <a href="'. get_bloginfo('url') .'">Startseite</a>!';
-}
-return $content;
+	if(is_feed()){
+		$content = ' '.$content.'Visit our <a href="'. get_bloginfo('url') .'">Website</a>!';
+	}
+	return $content;
 }
 add_filter('the_excerpt_rss', 'rawcore_postrss');
 add_filter('the_content', 'rawcore_postrss');
@@ -39,7 +39,7 @@ add_filter('the_content', 'rawcore_postrss');
 
 // Die totale Abschaltung der RSS-Feeds
 // function rawcore_no_feed() {
-// wp_die( __('Kein Feed verfügbar. Bitte besuchen Sie unsere <a href="'. get_bloginfo('url') .'">Startseite</a>!') );
+// 	wp_die( __('Kein Feed verfügbar. Visit our <a href="'. get_bloginfo('url') .'">Website</a>!') );
 // }
 
 // add_action('do_feed', 'rawcore_no_feed', 1);
