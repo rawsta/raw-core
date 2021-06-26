@@ -4,31 +4,31 @@ WordPress Plugin for theme-independant tweaks and customizations.
 
 This plugin removes unneeded functions and assets, provides basic backend branding and smaller changes that are independent from the theme.
 
-Status: alpha
+status: **alpha**
 
-Hier eine Liste der Sachen die für einen optimalen Einsatz benötigt werden:
+Things to customize:
 
  > Login Logo (min.85x85px,png)
  > Dashboard Logo (20x20px,png)
- > Inhalt vom Dashboard Widget (optional)
+ > content of the Dashboard Widget (optional)
 
-ToDo:
- - Dokumentation
+## ToDo
 
-current functions:
-  - Versionsinfo abschalten
-  - Head Bereich aufräumen
-  - Login Fehler begrenzen
-  - Login Logo setzen
-  - Login Logo URL setzen
-  - Login Logolink titel setzen
-  - seitensprung bei -read more- abschalten
-  - Shortcodes in Text-Widgets
-  - RSS-Feeds abschalten
-  - Dashboard Widgets abschalten
-  - Eigenes Dashboard Widget anlegen
-  - Dashboard Logo setzen
-  - Admin Footer Text setzen
-  - Dashicons aktivieren
+- Documentation
 
-Anleitung und Dokumentation wird noch ausgearbeitet.
+## current functions
+
+- disable Version info
+- Clean up the Head
+- reduce login error messages
+- change login logo
+- change login url
+- change login linktitle
+- disable jumplink on -read more-
+- enable shortcodes in text-widgets
+- disable RSS-feeds
+- disable dashboard widgets
+- own dashboard widget
+- change dashboard logo
+- change admin footer text
+- enable using dashicons in backend
